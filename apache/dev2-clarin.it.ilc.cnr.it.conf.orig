@@ -6,8 +6,8 @@
         # match this virtual host. For the default virtual host (this file) this
         # value is not decisive as it is used as a last resort host regardless.
         # However, you must set it for any further virtual host explicitly.
-        #ServerName www.example.com
-
+        ServerName dev2-clarin.ilc.cnr.it
+	ServerAlias dev2-clarin.ilc.cnr.it
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/dev2-clarin
 
@@ -68,7 +68,7 @@
         # value is not decisive as it is used as a last resort host regardless.
         # However, you must set it for any further virtual host explicitly.
         #ServerName www.example.com
-
+	ServerAlias 146.48.93.24
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/dev2-clarin
 
