@@ -135,33 +135,7 @@ keystoreFile="/opt/java/tomcat8/dspace-clarin-it_ilc_cnr_it.p12"
                resourceName="UserDatabase"/>
       </Realm>
 
-<Host name="localhost" appBase="webapps" unpackWARs="true" autoDeploy="true" xmlValidation="false" xmlNamespaceAware="false">
-
-                        <Context path="/repository/xmlui" docBase="/opt/java/ilc4clarin-dspace/ilc4clarin/installations/webapps/xmlui"
-                       reloadable="true" cachingAllowed="false" allowLinking="true" />
-                        <Context path="/repository/solr" docBase="/opt/java/ilc4clarin-dspace/ilc4clarin/installations/webapps/solr"
-                       reloadable="true" cachingAllowed="false" allowLinking="true" />
-                        <Context path="/repository/oai" docBase="/opt/java/ilc4clarin-dspace/ilc4clarin/installations/webapps/oai"
-                       reloadable="true" cachingAllowed="false" allowLinking="true" />
-
-                        <!-- try rest as webapp -->
-                         <Context path="/repository/rest" docBase="/opt/java/ilc4clarin-dspace/ilc4clarin/installations/webapps/rest"
-                       reloadable="true" cachingAllowed="false" allowLinking="true" />
-
-        <!-- SingleSignOn valve, share authentication between web applications
-             Documentation at: /docs/config/valve.html -->
-        <!--
-        <Valve className="org.apache.catalina.authenticator.SingleSignOn" />
-        -->
-
-        <!-- Access log processes all example.
-             Documentation at: /docs/config/valve.html
-             Note: The pattern used is equivalent to using pattern="common" -->
-        <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
-               prefix="localhost_access_log" suffix=".txt"
-               pattern="%h %l %u %t &quot;%r&quot; %s %b" />
-
-      </Host>    
+</Host>  
 
 
 </Engine>
