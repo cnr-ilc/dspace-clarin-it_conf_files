@@ -86,11 +86,14 @@
                maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
                clientAuth="false" sslProtocol="TLS" />
     -->
-<Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
-               maxThreads="150" scheme="https" secure="true"
-               clientAuth="false" sslProtocol="TLS" 
-               keystoreFile="/opt/tomcat/dev2-clarin-ilc_cnr_it.p12"
-               keystorePass="tomcat" />
+
+ <Connector protocol="org.apache.coyote.http11.Http11NioProtocol"
+           port="8443" maxThreads="200"
+           scheme="https" secure="true" SSLEnabled="true"
+           keystoreFile="/opt/tomcat/dev-clarin-ilc_cnr_it.p12" 
+	   keystorePass="tomcat"
+           clientAuth="false" sslProtocol="TLS"/>
+
 
 <!-- change them back to
 keystoreFile="/opt/java/tomcat8/dspace-clarin-it_ilc_cnr_it.p12"
@@ -100,10 +103,13 @@ keystoreFile="/opt/java/tomcat8/dspace-clarin-it_ilc_cnr_it.p12"
     <!-- Vecchio -->
 <!--    <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" enableLookups="false" URIEncoding="UTF-8" /> -->
 
-    <!-- Nuovo -->
+    <!-- New for dev* with tomcat9
+	secretRequired="false" address="0.0.0.0"/>
+	may be in prod implement worker?
+		-->
     <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" enableLookups="false" URIEncoding="UTF-8" 
 	    maxThreads="10" minSpareThreads="5" maxSpareThreads="8"
-	            acceptCount="50" connectionTimeout="20000"/>
+	            acceptCount="50" connectionTimeout="20000" secretRequired="false" address="0.0.0.0"/>
 
 
     <!-- An Engine represents the entry point (within Catalina) that processes
