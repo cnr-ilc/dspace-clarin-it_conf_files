@@ -90,7 +90,7 @@
  <Connector protocol="org.apache.coyote.http11.Http11NioProtocol"
            port="8443" maxThreads="200"
            scheme="https" secure="true" SSLEnabled="true"
-           keystoreFile="/opt/tomcat/dev2-clarin-ilc_cnr_it.p12" 
+           keystoreFile="/opt/tomcat/dev-clarin-ilc_cnr_it.p12" 
 	   keystorePass="tomcat"
            clientAuth="false" sslProtocol="TLS"/>
 
