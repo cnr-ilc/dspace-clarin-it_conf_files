@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
+  <Extensions xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
+      <mdattr:EntityAttributes xmlns:mdattr="urn:oasis:names:tc:SAML:metadata:attribute">
+        <saml:Attribute xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" Name="http://macedir.org/entity-category" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
+          <saml:AttributeValue>http://www.geant.net/uri/dataprotection-code-of-conduct/v1</saml:AttributeValue>
+        </saml:Attribute>
+      </mdattr:EntityAttributes>
+  </Extensions>
+  <md:SPSSODescriptor>
+    <Extensions xmlns="urn:oasis:names:tc:SAML:2.0:metadata">
+      <mdui:UIInfo xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui">
+         <mdui:DisplayName xml:lang="en">Digital Repository for the CLARIN Research Infrastructure provided by ILC-CNR</mdui:DisplayName>
+         <mdui:DisplayName xml:lang="it">Repository Digitale per la Infrastruttura di Ricerca CLARIN erogato da ILC-CNR</mdui:DisplayName>
+         <mdui:Description xml:lang="en">ILC-CNR for CLARIN-IT Consortium: Digital repository and services on language research infrastructure</mdui:Description>
+         <mdui:Description xml:lang="it">ILC-CNR per il consorzio CLARIN-IT: repository e servizi di risorse linguistiche</mdui:Description>
+         <mdui:InformationURL xml:lang="en">https://dev-clarin.ilc.cnr.it/repository/xmlui/page/about</mdui:InformationURL>
+         <mdui:InformationURL xml:lang="it">https://dev-clarin.ilc.cnr.it/repository/xmlui/page/about</mdui:InformationURL>
+         <mdui:Logo height="68" width="453" xml:lang="en">https://webmail.ilc.cnr.it/CLARIN-IT_ILC_Logo_453x68.png</mdui:Logo>
+         <mdui:Logo height="68" width="453" xml:lang="it">https://webmail.ilc.cnr.it/CLARIN-IT_ILC_Logo_453x68.png</mdui:Logo>
+         <mdui:Logo height="16" width="16" xml:lang="en">https://webmail.ilc.cnr.it/ILC_Logo_IDEM_16x16.png</mdui:Logo>
+         <mdui:Logo height="16" width="16" xml:lang="it">https://webmail.ilc.cnr.it/ILC_Logo_IDEM_16x16.png</mdui:Logo>
+         <mdui:Logo height="80" width="60" xml:lang="en">https://webmail.ilc.cnr.it/ILC_Logo_IDEM_80x60.png</mdui:Logo>
+         <mdui:Logo height="80" width="60" xml:lang="it">https://webmail.ilc.cnr.it/ILC_Logo_IDEM_80x60.png</mdui:Logo>
+        <mdui:PrivacyStatementURL xml:lang="en">https://dev-clarin.ilc.cnr.it/repository/xmlui/page/privacypolicy</mdui:PrivacyStatementURL>
+        <mdui:PrivacyStatementURL xml:lang="it">https://dev-clarin.ilc.cnr.it/repository/xmlui/page/privacypolicy</mdui:PrivacyStatementURL>
+      </mdui:UIInfo>
+    </Extensions>
+    <md:AttributeConsumingService index="1">
+      <md:ServiceName xml:lang="en">Digital Repository for the CLARIN Research Infrastructure provided by ILC-CNR</md:ServiceName>
+      <md:ServiceName xml:lang="it">Repository Digitale per la Infrastruttura di Ricerca CLARIN erogato da ILC-CNR</md:ServiceName>
+      <md:ServiceDescription xml:lang="en">Digital Repository and services related to the CLARIN-IT consortium under the CLARIN Research Infrastructure; focused in the field of Computational Linguistics, it's provided by Institute for Computational Linguistics &quot;Antonio Zampolli&quot;, National Research Council, located in Pisa</md:ServiceDescription>
+      <md:ServiceDescription xml:lang="it">Repository Digitale e servizi relativi al consorzio CLARIN-IT sotto l'Infrastruttura di Ricerca CLARIN; focalizzato nel campo della Linguistica Computazionale, e' fornito dall'Istituto di Linguistica Computazionale &quot;Antonio Zampolli&quot;, Consiglio Nazionale delle Ricerche, con sede a Pisa</md:ServiceDescription>
+      <md:RequestedAttribute FriendlyName="eduPersonPrincipalName" 
+                             isRequired="true"
+                             Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.6" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <md:RequestedAttribute FriendlyName="email" 
+                             isRequired="true"
+                             Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <md:RequestedAttribute FriendlyName="cn" 
+                             isRequired="false"
+                             Name="urn:oid:2.5.4.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <md:RequestedAttribute FriendlyName="schacHomeOrganization" 
+                             isRequired="false"
+                             Name="urn:oid:1.3.6.1.4.1.25178.1.2.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <md:RequestedAttribute FriendlyName="organizationName" 
+                             isRequired="false"
+                             Name="urn:oid:2.5.4.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <md:RequestedAttribute FriendlyName="displayName" 
+                             isRequired="true"
+                             Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <md:RequestedAttribute FriendlyName="eduPersonEntitlement" 
+                             isRequired="false"
+                             Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.7" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <md:RequestedAttribute FriendlyName="eduPersonTargetedID" 
+                             isRequired="true"
+                             Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <md:RequestedAttribute FriendlyName="eduPersonScopedAffiliation"
+                             isRequired="true"
+                             Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+    </md:AttributeConsumingService>
+  </md:SPSSODescriptor>
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">National Research Council (CNR)</md:OrganizationName>
+    <md:OrganizationName xml:lang="it">Consiglio Nazionale delle Ricerche (CNR)</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">CNR Institute for Computational Linguistics &quot;Antonio Zampolli&quot;</md:OrganizationDisplayName>
+    <md:OrganizationDisplayName xml:lang="it">CNR Istituto di Linguistica Computazionale &quot;Antonio Zampolli&quot;</md:OrganizationDisplayName>
+    <md:OrganizationURL xml:lang="en">http://www.ilc.cnr.it/en</md:OrganizationURL>
+    <md:OrganizationURL xml:lang="it">http://www.ilc.cnr.it</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Alessandro</md:GivenName>
+    <md:SurName>Enea</md:SurName>
+    <md:EmailAddress>mailto:alessandro.enea@ilc.cnr.it</md:EmailAddress>
+  </md:ContactPerson>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Riccardo</md:GivenName>
+    <md:SurName>Del Gratta</md:SurName>
+    <md:EmailAddress>mailto:riccardo.delgratta@ilc.cnr.it</md:EmailAddress>
+  </md:ContactPerson>
+  <md:ContactPerson contactType="support">
+    <md:GivenName>Riccardo</md:GivenName>
+    <md:SurName>Del Gratta</md:SurName>
+    <md:EmailAddress>mailto:dspace-clarin-it-ilc-help@ilc.cnr.it</md:EmailAddress>
+  </md:ContactPerson>
+</md:EntityDescriptor>
