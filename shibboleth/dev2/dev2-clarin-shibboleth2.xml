@@ -16,7 +16,8 @@
             https on the default ports. Note that the name and port in the <Host> elements MUST match
             Apache's ServerName and Port directives or the IIS Site name in the <ISAPI> element above.
             -->
-<!--            <Host name="dev2-clarin.ilc.cnr.it">
+	<!--    
+		<Host name="dev2-clarin.ilc.cnr.it">
 		<Path name="test" authType="shibboleth" requireSession="false"/>
 		<Path name="secure" authType="shibboleth" requireSession="true"/>
             </Host> --> 

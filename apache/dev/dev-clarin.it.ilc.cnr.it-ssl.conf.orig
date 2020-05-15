@@ -1,38 +1,29 @@
-<IfModule mod_shib>
-	<VirtualHost dspace-clarin-it.ilc.cnr.it:443>
-		ServerAdmin dspace-clarin-it-ilc-help@ilc.cnr.it
-		ServerName dspace-clarin-it.ilc.cnr.it
+# after shibboleth is installed, 
+# 1 comment mod_ssl and uncomment mod_shib
+# 2 decomment any section related to shib (see comments below)
+<IfModule mod_ssl.c>
+#<IfModule mod_shib>
+	<VirtualHost dev-clarin.ilc.cnr.it:443>
+		ServerName dev-clarin.ilc.cnr.it
+	    ServerAlias dev-clarin.ilc.cnr.it
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/dev-clarin
 
-		DocumentRoot /var/www/ilc-dspace
-
-        ScriptAlias /cgi-bin/ /var/www/ilc-dspace/secure/
-        # temporary patch for https://jira.duraspace.org/browse/DS-3094 (Apache) 
-        # If your DSpace XMLUI URL starts with "/xmlui", you should use this instead:
-        
-        #RewriteRule ^/+repository/+xmlui/+themes/.*:.*$ /repository/xmlui/error [R=permanent,L]
+		        
+		#THIS IS TO UNCOMMENT AFTER SHIBBOLETH IS INSTALLED
+		#ScriptAlias /cgi-bin/ /var/www/dev-clarin/secure/
         RewriteEngine On
 
 		# handle cmdi requests with redirects
-		# comment rewrite for solr start from version 2017.03.1
-		# RewriteCond %{REQUEST_URI} ^(.*)/repository/xmlui/JSON/solr/(.*)$
-		# RewriteRule ^(.*)/repository/xmlui/JSON/solr/(.*)$ http://localhost:8080/repository/solr/search/select/?q=*:*&rows=0&facet=on&wt=json&indent=true&facet.field=$2 [P]
-		# ProxyPass http://localhost:8080
-
-		# RewriteCond %{HTTP_ACCESS} (.*cmdi.xml.*)
-		# RewriteCond %{REQUEST_URI} ^(.*)/xmlui/handle/(.*)$
-		# RewriteRule ^(.*)/xmlui/handle/(.*)$ https://dev-clarin.ilc.cnr.it$1/oai/cite?metadataPrefix=cmdi&handle=$2 [R,L]
+		# SEE SSL DEV-CLARIN ON GITHUB
 
 		RewriteCond %{HTTP_ACCESS} (.*cmdi.xml.*)
 		RewriteCond %{REQUEST_URI} ^(.*)/xmlui/handle/(.*)$
-		RewriteRule ^(.*)/xmlui/handle/(.*)$ https://dspace-clarin-it.ilc.cnr.it$1/oai/cite?metadataPrefix=cmdi&handle=$2 [R,L]
-
-		# RewriteCond %{QUERY_STRING} format=cmdi [NC]
-		# RewriteCond %{REQUEST_URI} ^(.*)/xmlui/handle/(.*)$
-		# RewriteRule ^(.*)/xmlui/handle/(.*)$ https://dev-clarin.ilc.cnr.it$1/oai/cite?metadataPrefix=cmdi&handle=$2 [R,L]
+		RewriteRule ^(.*)/xmlui/handle/(.*)$ https://dev-clarin.ilc.cnr.it$1/oai/cite?metadataPrefix=cmdi&handle=$2 [R,L]
 
 		RewriteCond %{QUERY_STRING} format=cmdi [NC]
 		RewriteCond %{REQUEST_URI} ^(.*)/xmlui/handle/(.*)$
-		RewriteRule ^(.*)/xmlui/handle/(.*)$ https://dspace-clarin-it.ilc.cnr.it$1/oai/cite?metadataPrefix=cmdi&handle=$2 [R,L]
+		RewriteRule ^(.*)/xmlui/handle/(.*)$ https://dev-clarin.ilc.cnr.it$1/oai/cite?metadataPrefix=cmdi&handle=$2 [R,L]
 
 		RewriteCond %{REQUEST_URI} ^/repository$
 		RewriteRule (.*) /repository/xmlui [R,L]
@@ -48,15 +39,16 @@
 		#LogLevel info ssl:warn
 		LogLevel info ssl:debug
 
-		ErrorLog ${APACHE_LOG_DIR}/dspace-clarin-it-error.log
-		CustomLog ${APACHE_LOG_DIR}/dspace-clarin-it-access.log combined
+		ErrorLog ${APACHE_LOG_DIR}/dev-clarin-error.log
+		CustomLog ${APACHE_LOG_DIR}/dev-clarin-access.log combined
 
-        ProxyPass  /Shibboleth.sso !
+        #THIS IS TO UNCOMMENT AFTER SHIBBOLETH IS INSTALLED 
+		#ProxyPass  /Shibboleth.sso !
 
         # These configurations say: By default, redirect ALL requests to port 8009
         # (The port MUST match the port of your Tomcat AJP Connector. By default this usually is 8009)
-        ProxyPass         /repository  ajp://dspace-clarin-it.ilc.cnr.it:8009/repository
-        ProxyPassReverse  /repository  ajp://dspace-clarin-it.ilc.cnr.it:8009/repository
+        ProxyPass         /repository  ajp://dev-clarin.ilc.cnr.it:8009/repository
+        ProxyPassReverse  /repository  ajp://dev-clarin.ilc.cnr.it:8009/repository
 
 
 		# For most configuration files from conf-available/, which are
@@ -77,18 +69,15 @@
 		SSLProxyCheckPeerExpire off
 
 		# aggiunti per sicurezza ssllabs 11/05/2018
-		###SSLProtocol All -SSLv2 -SSLv3 -TLSv1 -TLSv1.1
-		###SSLCipherSuite "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH"
-		###SSLHonorCipherOrder on
-		###SSLCompression Off
-		# fine
+		# SEE SSL DEV-CLARIN ON GITHUB
+		
 
 		# aggiunti per sicurezza ssllabs 15/05/2018
 		SSLProtocol TLSv1.2
 		SSLCipherSuite "HIGH:!aNULL:!MD5:!3DES:!CAMELLIA:!AES128"
 		#last SSLCipherSuite "HIGH:!aNULL:!MD5:!3DES:!CAMELLIA:!AES128:!RSA:EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH:CAMELIA256+EDH"
 		SSLUseStapling on
-		SSLOpenSSLConfCmd DHParameters "/etc/apache2/ssl/dh_4096.pem"
+		#DA VEDERE SSLOpenSSLConfCmd DHParameters "/etc/apache2/ssl/dh_4096.pem"
 		SSLHonorCipherOrder on
 		SSLCompression Off
 		# fine
@@ -99,10 +88,16 @@
 		#   /usr/share/doc/apache2/README.Debian.gz for more info.
 		#   If both key and certificate are stored in the same file, only the
 		#   SSLCertificateFile directive is needed.
-###		SSLCertificateFile    /etc/apache2/ssl/dev-clarin.crt
-###		SSLCertificateKeyFile /etc/apache2/ssl/dev-clarin.key
-		SSLCertificateFile    /etc/apache2/ssl/dspace-clarin-it_ilc_cnr_it/dspace-clarin-it_ilc_cnr_it.crt
-		SSLCertificateKeyFile /etc/apache2/ssl/dspace-clarin-it_ilc_cnr_it/dspace-clarin-it_ilc_cnr_it.key
+
+		#SSLCertificateFile    /etc/apache2/ssl/autofirmati/dev-clarin.crt
+		#SSLCertificateKeyFile /etc/apache2/ssl/autofirmati/dev-clarin.key
+
+		# LETSENCRYPT
+		SSLCertificateFile    /etc/letsencrypt/archive/dev-clarin.ilc.cnr.it/cert1.pem
+		SSLCertificateKeyFile /etc/letsencrypt/archive/dev-clarin.ilc.cnr.it/privkey1.pem
+
+
+
 
 		#   Server Certificate Chain:
 		#   Point SSLCertificateChainFile at a file containing the
@@ -113,7 +108,7 @@
 		#   certificate for convinience.
 		#SSLCertificateChainFile /etc/apache2/ssl.crt/server-ca.crt
 
-		SSLCertificateChainFile /etc/apache2/ssl/dspace-clarin-it_ilc_cnr_it/DigiCertCA.crt
+		#SSLCertificateChainFile /etc/apache2/ssl/dev-clarin_ilc_cnr_it/DigiCertCA.crt
 ###             SSLCertificateChainFile /etc/apache2/ssl/lets-ca.pem
 
 		#   Certificate Authority (CA):
@@ -168,6 +163,8 @@
 		#	 This enables optimized SSL connection renegotiation handling when SSL
 		#	 directives are used in per-directory context.
 		#SSLOptions +FakeBasicAuth +ExportCertData +StrictRequire
+
+
 		<FilesMatch "\.(cgi|shtml|phtml|php)$">
 				SSLOptions +StdEnvVars
 		</FilesMatch>
@@ -175,11 +172,19 @@
 				SSLOptions +StdEnvVars
 		</Directory>
 
+		
+	
 
-		# try to rewrite
-		#RewriteRule ^/LatMorphWebApp/(.*) http://cophilab.ilc.cnr.it:8080/LatMorphWebApp/ [R,L]
-		include ../conf-enabled/shib-dspace-clarin-it.conf
 
+		BrowserMatch "MSIE [2-6]" \
+			nokeepalive ssl-unclean-shutdown \
+			downgrade-1.0 force-response-1.0
+		# MSIE 7 and newer should be able to use keepalive
+		BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown
+
+
+		#THIS IS TO UNCOMMENT AFTER SHIBBOLETH IS INSTALLED
+		#include ../conf-enabled/shib-dev-clarin.conf
  		
 
 
