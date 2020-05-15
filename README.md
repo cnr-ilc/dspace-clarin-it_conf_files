@@ -60,3 +60,5 @@ Last working release taken from shibboleth (dev-clarin, which was dspace-clarin-
 ### common ###
 Common files
 * shidb Shell script to make shidb a service
+* shib_test.pl A script to test for CLARIN idp
+* shib_test.php A script to test for ILC idp

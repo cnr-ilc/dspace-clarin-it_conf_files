@@ -109,7 +109,7 @@
 		#SSLCertificateChainFile /etc/apache2/ssl.crt/server-ca.crt
 
 		#SSLCertificateChainFile /etc/apache2/ssl/dev-clarin_ilc_cnr_it/DigiCertCA.crt
-###             SSLCertificateChainFile /etc/apache2/ssl/lets-ca.pem
+        ###SSLCertificateChainFile /etc/apache2/ssl/lets-ca.pem
 
 		#   Certificate Authority (CA):
 		#   Set the CA certificate verification path where to find CA
