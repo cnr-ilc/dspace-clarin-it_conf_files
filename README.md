@@ -62,3 +62,23 @@ Common files
 * shidb Shell script to make shidb a service
 * shib_test.pl A script to test for CLARIN idp
 * shib_test.php A script to test for ILC idp
+
+## clarin-dspace ##
+Contains configuration files for clarin-dspace. There are subdirectories which contain essentially the same files but organized by the hostname. We describe only dev2.
+### dev2 ###
+* dev2-clarin-local.properties local.properties for dev2
+* dev2-clarin-variable.makefile variables for make file
+
+### dev ###
+
+### dspace ###
+
+### common ###
+* variables_for_bashrc.txt Contains bash variables to insert into .bashrc file of the user (ilc-clarin)
+* create_and_restore_db.txt Use it to create the database (and restore it)
+* local.properties.dist Distributed local properties. Double check this file with yours in search of new possible variables
+* ILC-CNR_for_CLARIN-IT_Logo.png logo
+
+### lwr ###
+* local.properties.dev-clarin-05052020 Contains personalization for ILC4CLARIN
+* variable.makefile.dev-clarin-05052020  Contains personalization for ILC4CLARIN, including overlays and common theme

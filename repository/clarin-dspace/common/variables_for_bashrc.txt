@@ -1,0 +1,17 @@
+# git stuff
+export GIT_DIRECTORY=/opt/git # git directory
+export GIT_PROJECT_NAME=ilc4clarin-dspace # sw to install is in /opt/git/ilc4clarin-dspace
+
+# java stuff
+export JAVA_APP=/opt/java # java directory where th software will be installed
+export INSTITUTE=ilc4clarin # subproject
+export DSPACE_INSTALLATION_DIRECTORY=$JAVA_APP/$GIT_PROJECT_NAME/$INSTITUTE/installations # sw installed in /opt/java/ilc4clarin-dspace/ilc4clarin/installation
+
+# clarin-dspace stuff
+export DSPACE_INSTANCE_NAME=repository # name of the application
+export DSPACE_SOURCE_DIRECTORY=$GIT_DIRECTORY/$GIT_PROJECT_NAME
+export DSPACE_WORKSPACE=$JAVA_APP/$GIT_PROJECT_NAME/$INSTITUTE/workspace
+
+#tomcat stuff
+export TOMCAT_DIRECTORY=/opt/tomcat
+
