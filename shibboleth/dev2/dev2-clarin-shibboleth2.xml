@@ -158,7 +158,7 @@
 	<!-- edugain IDP -->
 
         <MetadataProvider type="XML" 
-			  uri="http://mds.edugain.org"
+			  url="http://mds.edugain.org"
               		  backingFilePath="edugain-metadata.xml" reloadInterval="7200" legacyOrgNames="true">
         </MetadataProvider>
  
@@ -181,7 +181,7 @@
 			  	certificate="/etc/letsencrypt/archive/dev2-clarin.ilc.cnr.it/cert1.pem"/>
 	
 	<!-- if no requestmap is needed, is this still necessary?? -->
-	<ApplicationOverride id="dev2-clarin.ilc.cnr.it" 
+	<ApplicationOverride id="dev2-clarin.ilc.cnr.it-override" 
 			     	entityID="https://dev2-clarin.ilc.cnr.it/Shibboleth.sso/Metadata" 
 			     	REMOTE_USER="eppn persistent-id targeted-id mail" 
 			     	sessionHook="/clarin-sp-aaggregator/aa-statistics.php"

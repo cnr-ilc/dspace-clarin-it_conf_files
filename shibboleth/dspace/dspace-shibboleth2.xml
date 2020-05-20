@@ -157,7 +157,7 @@
 	<!-- edugain IDP -->
 
         <MetadataProvider type="XML" 
-			  uri="http://mds.edugain.org"
+			  url="http://mds.edugain.org"
               		  backingFilePath="edugain-metadata.xml" reloadInterval="7200" legacyOrgNames="true">
         </MetadataProvider>
  
@@ -179,11 +179,20 @@
 	<CredentialResolver type="File" key="/etc/apache2/ssl/dspace-clarin-it_ilc_cnr_it/dspace-clarin-it_ilc_cnr_it.key" certificate="/etc/apache2/ssl/dspace-clarin-it_ilc_cnr_it/dspace-clarin-it_ilc_cnr_it.crt"/>
 	
 	<!-- if no requestmap is needed, is this still necessary?? -->
-	<ApplicationOverride id="dspace-clarin-it.ilc.cnr.it" 
-			     	entityID="https://dspace-clarin-it.ilc.cnr.it/Shibboleth.sso/Metadata" 
+	<!-- sessionHook="/clarin-sp-aaggregator/aa-statistics.php" TO CHECK-->
+	<!-- maybe the sessionhook can be put in application default and leave 
+	<ApplicationOverride id="dspace-clarin-it.ilc.cnr.it-override" 
+			     	entityID="https://dev2-clarin.ilc.cnr.it/Shibboleth.sso/Metadata" 
 			     	REMOTE_USER="eppn persistent-id targeted-id mail" 
 			     	sessionHook="/clarin-sp-aaggregator/aa-statistics.php"
 				cipherSuites="DEFAULT:!EXP:!LOW:!aNULL:!eNULL:!DES:!IDEA:!SEED:!RC4:!3DES:!kRSA:!SSLv2:!SSLv3:!TLSv1:!TLSv1.1">
+		????
+		-->
+        <ApplicationOverride id="dspace-clarin-it.ilc.cnr.it" entityID="https://dspace-clarin-it.ilc.cnr.it/Shibboleth.sso/Metadata" 
+				REMOTE_USER="eppn persistent-id targeted-id mail" 
+				sessionHook="/clarin-sp-aaggregator/aa-statistics.php"
+				cipherSuites="DEFAULT:!EXP:!LOW:!aNULL:!eNULL:!DES:!IDEA:!SEED:!RC4:!3DES:!kRSA:!SSLv2:!SSLv3:!TLSv1:!TLSv1.1">> 
+	
 		<Sessions lifetime="28800" timeout="3600" checkAddress="false" relayState="ss:mem" handlerSSL="true" 
 					exportLocation="/GetAssertion" exportACL="127.0.0.1 192.168.93.26">
        		<SSO entityID="https://idem-idp.ilc.cnr.it/idp/shibboleth">

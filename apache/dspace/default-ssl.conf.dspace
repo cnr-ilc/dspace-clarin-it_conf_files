@@ -178,7 +178,7 @@
 
 		# try to rewrite
 		#RewriteRule ^/LatMorphWebApp/(.*) http://cophilab.ilc.cnr.it:8080/LatMorphWebApp/ [R,L]
-		include ../conf-enabled/shib-dspace-clarin-it.conf
+		include conf-enabled/shib-dspace-clarin-it.conf
 
  		
 

@@ -10,7 +10,7 @@
         DocumentRoot /var/www/dev-clarin
 
 		        
-		#THIS IS TO UNCOMMENT AFTER SHIBBOLETH IS INSTALLED
+		THIS IS TO UNCOMMENT AFTER SHIBBOLETH IS INSTALLED
 		#ScriptAlias /cgi-bin/ /var/www/dev-clarin/secure/
         RewriteEngine On
 
@@ -43,7 +43,7 @@
 		CustomLog ${APACHE_LOG_DIR}/dev-clarin-access.log combined
 
         #THIS IS TO UNCOMMENT AFTER SHIBBOLETH IS INSTALLED 
-		#ProxyPass  /Shibboleth.sso !
+		ProxyPass  /Shibboleth.sso !
 
         # These configurations say: By default, redirect ALL requests to port 8009
         # (The port MUST match the port of your Tomcat AJP Connector. By default this usually is 8009)
@@ -89,8 +89,8 @@
 		#   If both key and certificate are stored in the same file, only the
 		#   SSLCertificateFile directive is needed.
 
-		#SSLCertificateFile    /etc/apache2/ssl/autofirmati/dev-clarin.crt
-		#SSLCertificateKeyFile /etc/apache2/ssl/autofirmati/dev-clarin.key
+		#SSLCertificateFile    /etc/apache2/ssl/selfsigned/dev-clarin.crt
+		#SSLCertificateKeyFile /etc/apache2/ssl/selfsigned/dev-clarin.key
 
 		# LETSENCRYPT
 		SSLCertificateFile    /etc/letsencrypt/archive/dev-clarin.ilc.cnr.it/cert1.pem
@@ -184,7 +184,7 @@
 
 
 		#THIS IS TO UNCOMMENT AFTER SHIBBOLETH IS INSTALLED
-		#include ../conf-enabled/shib-dev-clarin.conf
+		include conf-enabled/shib-dev-clarin.conf
  		
 
 
