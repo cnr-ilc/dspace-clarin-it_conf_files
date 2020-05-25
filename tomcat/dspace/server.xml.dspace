@@ -90,9 +90,9 @@
       <Connector protocol="org.apache.coyote.http11.Http11NioProtocol"
            port="8443" maxThreads="200"
            scheme="https" secure="true" SSLEnabled="true"
-           keystoreFile="/opt/tomcat/dspace-clarin-it-ilc_cnr_it-letsencrypt.p12" 
-           keystorePass="tomcat"
-           clientAuth="false" sslProtocol="TLS"/>
+           keystoreFile="/opt/java/tomcat8/dev-clarin_ilc_cnr_it.p12"
+           keystorePass="tomcat" />
+           <!--clientAuth="false" sslProtocol="TLS"/> -->
       <!-- when the key store contains the self signed certificates
       <Connector protocol="org.apache.coyote.http11.Http11NioProtocol"
        port="8443" maxThreads="200"

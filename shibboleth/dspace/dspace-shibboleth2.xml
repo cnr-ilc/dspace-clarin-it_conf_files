@@ -79,7 +79,7 @@
             <Handler type="MetadataGenerator" Location="/Metadata" signing="false" template="/opt/shibboleth-sp/etc/shibboleth/md_template.xml"/> 
 
             <!-- Status reporting service. -->
-            <Handler type="Status" Location="/Status" acl="146.48.93.24 ::1"/> <!-- immediately back to "127.0.0.1 ::1" -->
+            <Handler type="Status" Location="/Status" acl="127.0.0.1 ::1"/> <!-- immediately back to "127.0.0.1 ::1" -->
 
             <!-- Session diagnostic service. -->
             <Handler type="Session" Location="/Session" showAttributeValues="false"/>
@@ -188,8 +188,9 @@
 				cipherSuites="DEFAULT:!EXP:!LOW:!aNULL:!eNULL:!DES:!IDEA:!SEED:!RC4:!3DES:!kRSA:!SSLv2:!SSLv3:!TLSv1:!TLSv1.1">
 		????
 		-->
+	<!-- sessionHook="/clarin-sp-aaggregator/aa-statistics.php" TO CHECK-->
         <ApplicationOverride id="dspace-clarin-it.ilc.cnr.it" entityID="https://dspace-clarin-it.ilc.cnr.it/Shibboleth.sso/Metadata" 
-				REMOTE_USER="eppn persistent-id targeted-id mail" 
+				REMOTE_USER="eppn persistent-id targeted-id mail"
 				sessionHook="/clarin-sp-aaggregator/aa-statistics.php"
 				cipherSuites="DEFAULT:!EXP:!LOW:!aNULL:!eNULL:!DES:!IDEA:!SEED:!RC4:!3DES:!kRSA:!SSLv2:!SSLv3:!TLSv1:!TLSv1.1">> 
 	

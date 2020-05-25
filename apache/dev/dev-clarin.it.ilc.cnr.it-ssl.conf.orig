@@ -1,8 +1,8 @@
 # after shibboleth is installed, 
 # 1 comment mod_ssl and uncomment mod_shib
 # 2 decomment any section related to shib (see comments below)
-<IfModule mod_ssl.c>
-#<IfModule mod_shib>
+#<IfModule mod_ssl.c>
+<IfModule mod_shib>
 	<VirtualHost dev-clarin.ilc.cnr.it:443>
 		ServerName dev-clarin.ilc.cnr.it
 	    ServerAlias dev-clarin.ilc.cnr.it

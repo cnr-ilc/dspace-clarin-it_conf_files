@@ -1,0 +1,6 @@
+To backup the database from one machine and restore to the other:
+
+on machine 1:
+sudo make backup_databases. 
+Then move dump should be copied onto machine2 
+

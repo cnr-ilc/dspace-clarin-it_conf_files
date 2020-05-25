@@ -30,6 +30,11 @@
                 <Path name="shibboleth-login" authType="shibboleth" requireSession="false" />
 		<Path name="secure" authType="shibboleth" requireSession="true"/>
             </Host> -->
+            <Host name="dev-clarin.ilc.cnr.it" applicationId="dev-clarin.ilc.cnr.it-override" exportAssertion="true">
+                <!--<Path name="shibboleth-login" authType="shibboleth" requireSession="false" />-->
+                <Path name="perl" authType="shibboleth" requireSession="true"/>
+            </Host>
+
 
             <!-- Example of a second vhost mapped to a different applicationId. -->
             <!--
