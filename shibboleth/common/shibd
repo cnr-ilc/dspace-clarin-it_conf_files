@@ -59,6 +59,9 @@ DAEMON_OPTS="$DAEMON_OPTS -p $PIDFILE"
 # Specify wait time to use
 DAEMON_OPTS="$DAEMON_OPTS -w 30"
 
+# Specifythe schemas to use
+DAEMON_OPTS="$DAEMON_OPTS -x $SHIBSP_SCHEMAS"
+
 # Exit if the package is not installed.
 [ -x "$DAEMON" ] || exit 0
 

@@ -1,0 +1,11 @@
+0 5 * * * /sbin/shutdown -r +5
+0 5 * * * cd /opt/java/ilc4clarin-dspace/ilc4clarin/installations; sudo chown -R tomcat.tomcat log
+0 4 * * * cd /opt/git/ilc4clarin-dspace/utilities/project_helpers/scripts; sudo make send_info
+0 3 * * * cd /opt/git/ilc4clarin-dspace/utilities/project_helpers/scripts; sudo make update_oai
+0 2 * * * cd /opt/git/ilc4clarin-dspace/utilities/project_helpers/scripts; sudo make update_statistics
+0 1 * * * cd /opt/git/ilc4clarin-dspace/utilities/project_helpers/scripts; sudo make update_sitemap
+30 0 * * * cd /opt/git/ilc4clarin-dspace/utilities/project_helpers/scripts; sudo make lift_embargos
+30 1 * * * cd /opt/git/ilc4clarin-dspace/utilities/project_helpers/scripts; sudo make update_openaire_cache
+30 3 * * 0 cd /opt/git/ilc4clarin-dspace/utilities/project_helpers/scripts; sudo make rebuild_oai
+0 2 * * 1 cd /opt/shibboleth-sp/var/cache/shibboleth; sudo rm -fr *.json
+45 3 * * * /usr/sbin/service shibd restart

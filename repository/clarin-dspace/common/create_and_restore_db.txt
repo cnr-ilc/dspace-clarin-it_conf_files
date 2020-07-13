@@ -1,0 +1,17 @@
+#drop db if already xisting
+dropdb --username=postgres ilcforclarin-db
+#create the db
+createdb --username=postgres --owner=dspace --encoding=UNICODE ilcforclarin-db
+#populate the db
+psql ilcforclarin-db < /tmp/ilcforclarin-db
+
+#drop db if already xisting
+dropdb --username=postgres ilcforclarin-db-utils
+#create the db
+createdb --username=postgres --owner=dspace --encoding=UNICODE ilcforclarin-db-utils
+#populate the db
+psql ilcforclarin-db-utils < /tmp/ilcforclarin-db-utils
+
+#connect
+psql -h localhost -U dspace ilcforclarin-db
+psql -h localhost -U dspace ilcforclarin-db-utils

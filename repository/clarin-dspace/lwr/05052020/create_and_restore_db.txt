@@ -1,9 +1,0 @@
-createdb --username=postgres --owner=dspace --encoding=UNICODE ilcforclarin-db
-psql ilcforclarin-db < /tmp/ilcforclarin-db
-
-
-createdb --username=postgres --owner=dspace --encoding=UNICODE ilcforclarin-db-utils
-psql ilcforclarin-db-utils < /tmp/ilcforclarin-db-utils
-
- psql -h localhost -U dspace ilcforclarin-db
- psql -h localhost -U dspace ilcforclarin-db-utils

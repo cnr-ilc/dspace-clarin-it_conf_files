@@ -106,7 +106,9 @@ Last working release taken from dspace-clarin-it (i.e. dev-clarin, which was dsp
 * create_and_restore_db.txt Use it to create (and restore) the databases
 * local.properties.dist Distributed local properties. Double-check this file with yours in search of new possible variables.
 * ILC-CNR_for_CLARIN-IT_Logo.png logo
-
+* ILC.png logo for ILC Community
+* OPEN.png logo for OPEN Community
+* crontab list of crontab jobs
 ## Handle Server (hs) ##
 The Handle Server section contains configuration files for the Handle Server. Due to the specific nature of the Handle Server, which depends on the IP address rather than on the hostname, the last working files (lwr) must be copied after we moved from test  to production.
 
